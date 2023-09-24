@@ -1,21 +1,25 @@
-import { initializeApp } from 'firebase/app';
 // Import the functions you need from the SDKs you need
+import { getApps, initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-
+// TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const alreadyCreatedAps = getApps();
 const firebaseConfig = {
-  apiKey: "AIzaSyA_efOM2pb5DCYwoBQmnPxoPb5whKjURmo",
-  authDomain: "astro-x-firebase.firebaseapp.com",
-  projectId: "astro-x-firebase",
-  storageBucket: "astro-x-firebase.appspot.com",
-  messagingSenderId: "371828858188",
-  appId: "1:371828858188:web:8a78231199cc98893103e9",
-  measurementId: "G-89VZCGR82W"
+  apiKey: "AIzaSyDqGOK_LMl0zmMkra7s04rQ-A6RAO7QrNU",
+  authDomain: "astro-firebase-vercel.firebaseapp.com",
+  projectId: "astro-firebase-vercel",
+  storageBucket: "astro-firebase-vercel.appspot.com",
+  messagingSenderId: "917879747866",
+  appId: "1:917879747866:web:c827743af62e1da812a8a3",
+  measurementId: "G-D9VS2Y15XT"
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+
+
+export const app = initializeApp(firebaseConfig);
+
 const analytics = getAnalytics(app);
