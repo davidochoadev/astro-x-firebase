@@ -10,8 +10,22 @@ interface Friend {
   age: number;
   isBestFriend: boolean;
 }
+interface Admin {
+  id: string;
+  email: string;
+  assigned_at: Date;
+  allowed: boolean;
+}
 const db = getFirestore(app);
 const friendsRef = db.collection("friends");
+
+const adminsRef = db.collection("Admin");
+const adminSnapShot = await adminsRef.get();
+const admins = adminSnapShot.docs.map((doc) => ({
+  id: doc.id,
+  ... doc.data(),
+})) as Admin[];
+
 const friendsSnapshot = await friendsRef.get();
 const friends = friendsSnapshot.docs.map((doc) => ({
   id: doc.id,
@@ -20,13 +34,20 @@ const friends = friendsSnapshot.docs.map((doc) => ({
 
 const auth = getAuth(app);
 
+const {users} = await auth.listUsers(1000);
 /* Check current session */
 if (!Astro.cookies.has("session")) {
   return Astro.redirect("/signin");
 }
+
 const sessionCookie = Astro.cookies.get("session")?.value;
 const decodedCookie = await auth.verifySessionCookie(sessionCookie!);
 const user = await auth.getUser(decodedCookie.uid);
+const isAdmin = admins.filter((element) => element.email === user.email);
+
+if(isAdmin.length > 0 || isAdmin[0]?.allowed === false) {
+  return Astro.redirect("/");
+}
 
 if (!user) {
   return Astro.redirect("/signin");
@@ -34,22 +55,32 @@ if (!user) {
 ---
 
 <Layout title="dashboard">
-  <h1>Welcome {user.displayName}</h1>
-  <p>We are happy to see you here</p>
-  <h2>Friends</h2>
-  <ul>
-   {
-     friends.map((friend) => (
-       <li>
-         <a href={`/friend/${friend.id}`}>{friend.name}</a>
-         <span>({friend.age})</span>
-         <strong>{friend.isBestFriend ? "Bestie" : "Friend"}</strong>
-         <a href={`/edit/${friend.id}`}>Edit</a>
-       </li>
-     ))
-   }
- </ul>
-  <form action="/api/auth/signout">
-    <button type="submit">Sign out</button>
-  </form>
+  <section class="p-2 bg-amber-200 h-screen w-full">
+    <h1>Welcome {user.displayName}</h1>
+    <p>We are happy to see you here</p>
+    <h2>Friends</h2>
+    <ul class="w-full shadow-md my-2 p-2 border border-amber-500 bg-amber-100 rounded-lg">
+  <!--    {
+       friends.map((friend) => (
+         <li>
+           <a href={`/friend/${friend.id}`}>{friend.name}</a>
+           <span>({friend.age})</span>
+           <strong>{friend.isBestFriend ? "Bestie" : "Friend"}</strong>
+           <a href={`/edit/${friend.id}`}>Edit</a>
+         </li>
+       ))
+     } -->
+     { users.map((user) => (
+        <li>
+          <p>{user.email}</p>
+        </li>
+      ))}
+   </ul>
+   <form method="POST">
+
+   </form>
+    <form action="/api/auth/signout">
+      <button type="submit">Sign out</button>
+    </form>
+  </section>
 </Layout>
