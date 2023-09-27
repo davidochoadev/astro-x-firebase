@@ -129,3 +129,5 @@ Sep 27, 2023 2:02:47 AM com.google.cloud.datastore.emulator.firestore.websocket.
 INFO: Websocket client disconnected
 Sep 27, 2023 2:16:32 AM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketChannelHandler initChannel
 INFO: Connected to new websocket client
+*** shutting down gRPC server since JVM is shutting down
+*** server shut down
