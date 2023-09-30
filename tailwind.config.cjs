@@ -7,7 +7,8 @@ module.exports = {
 			'activate': '#fff',
 			'white':'#ffffff',
 			'not-activate': '#d4d4d4e6',
-			'border-color': '#262626'
+			'border-color': '#262626',
+			'form-not-activate': '#c4c4c4'
 		},
 		extend: {},
 	},

@@ -33,7 +33,7 @@ console.log(Astro.url.pathname);
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400;1,600&family=Playfair+Display&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
@@ -147,6 +147,9 @@ console.log(Astro.url.pathname);
     box-sizing: border-box;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     margin: 0;
   }
