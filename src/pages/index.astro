@@ -1,10 +1,52 @@
 ---
 import Page from '../layouts/Page.astro';
 import Card from '../components/Card.astro';
+import { Image } from 'astro:assets';
+import logo from "../images/logo.png"
 ---
 
-<Page title="Applicazioni">
-	<section class="bg-red-500">
+<Page title="Studio Olistico di Romina Fabi">
+	<section class="bg-red-500 absolute top-0 left-0 w-full h-[90vh] flex flex-col">
+		<div id="box_logo" class="flex flex-col justify-center items-center max-w-[360px] mx-auto">
+			<Image
+			src={logo}
+			alt="Green&Fresh Logo"
+			quality={"max"}
+			loading="eager"
+			decoding="async"
+			class={`w-[100px] h-[100px] p-1 rounded-full transition duration-300 mb-2 ${
+			  Astro.url.pathname.toString() === "/"
+				 ? "bg-white"
+				 : "bg-[#d4d4d4] group-hover:bg-white"
+			}`}
+		 />
+			<h1 class="text-4xl title_font">Studio Olistico</h1>
+			<div class="w-full flex flex-row items-center gap-2">
+			  <span class="border-b border-[#ffffff] w-full"></span>
+			  <span class="text-xs">
+				 di
+			  </span>
+			  <span class="border-b border-[#ffffff] w-full"></span>
+			</div>
+			<h2 class="spacing text-xs">Romina Fabi</h2>
+		</div>
+		<div class="w-full text-center grow flex justify-center items-center flex-col">
+			<h1 id="typewriter" class="title_font text-3xl"></h1>
+			<h2 id="typewriter_sub" class="spacing text-sm"></h2>
+		</div>
+		<div class="flex flex-col w-full justify-center items-center">
+			<a
+				href="https://rominafabi.it/servizi"
+				target="_self"
+				class="spacing text-xs py-4 px-8 bg-main rounded-full text-white border border-white hover:bg-white hover:text-main transition-all duration-300"
+			>
+				Scopri tutti i miei servizi
+			</a>
+		</div>
+	</section>
+	<div class="h-[90vh]"></div>
+	<div id="start" class="h-12"></div>
+	<section>
 		<p class="instructions">
 			To get started, open the directory <code>src/pages</code> in your project.<br />
 			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
@@ -36,14 +78,16 @@ import Card from '../components/Card.astro';
 
 <style>
 	section {
-		margin: auto;
 		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
 		color: white;
 		font-size: 20px;
 		line-height: 1.6;
 	}
+	.spacing {
+    font-family: "Open Sans", serif;
+    letter-spacing:3px;
+    text-transform: uppercase;
+  }
 	.astro-a {
 		position: absolute;
 		top: -32px;
@@ -52,13 +96,6 @@ import Card from '../components/Card.astro';
 		width: 220px;
 		height: auto;
 		z-index: -1;
-	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
 	}
 	.text-gradient {
 		background-image: var(--accent-gradient);
@@ -92,3 +129,50 @@ import Card from '../components/Card.astro';
 		padding: 0;
 	}
 </style>
+<script>
+import { animate } from "motion"
+import Typewriter from 'typewriter-effect/dist/core.js';
+
+var type = new Typewriter('#typewriter', {
+  cursor: "",
+  autoStart: true,
+  loop: true,
+  delay: 'natural',
+  pauseFor: 500,
+});
+
+  type.pauseFor(500)
+  .typeString('Consulenze').pauseFor(10000).deleteChars(10)
+  .typeString('Trattamenti').pauseFor(10000).deleteChars(12)
+  .typeString('Percorsi').pauseFor(8000).deleteChars(10).start()
+
+  var subType = new Typewriter('#typewriter_sub', {
+	string: ["Tarologica", "Numerologica", "Oracolare"],
+	cursor: "",
+	autoStart: true,
+	loop: true,
+	delay: 'natural',
+	deleteSpeed: 30,
+  pauseFor: 500,
+  })
+  subType.pauseFor(2000)
+  .typeString('Tarologiche, Oracolari e Numerologiche')
+  .pauseFor(1500)
+  .deleteChars(40)
+  .pauseFor(1500)
+  .typeString('Reiki, Cristalloterapia, Medicina Olistica e altro...')
+  .pauseFor(1000)
+  .deleteChars(60)
+  .typeString('Workshop, Seminari, Laboratori Didattici...')
+  .pauseFor(1000)
+  .deleteChars(16)
+  .start()
+
+  animate(
+	 "#box_logo",
+	 {opacity: [
+    0, // 0.5
+    1,
+  ],},{ duration: 2 }
+  )
+</script>

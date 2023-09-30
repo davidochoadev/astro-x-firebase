@@ -1,4 +1,5 @@
 /// <reference types="astro/client" />
+declare module 'typewriter-effect/dist/core.js'
 interface ImportMetaEnv {
    readonly FIREBASE_PRIVATE_KEY_ID: string;
    readonly FIREBASE_PRIVATE_KEY: string;
