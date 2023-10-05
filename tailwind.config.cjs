@@ -13,7 +13,7 @@ module.exports = {
 		},
 		extend: {
 			backgroundImage: {
-				'hero-pattern': "url('/src/images/libreria_2.png')",
+				'hero-pattern': "url('/src/images/libreria.webp')",
 				'black-pattern': "url('/src/images/green.webp')"
 			 },
 			 inset: {
