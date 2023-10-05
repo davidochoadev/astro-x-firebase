@@ -1,19 +1,27 @@
 ---
 import Page from '../layouts/Page.astro';
-import Card from '../components/Card.astro';
+import Social from '../components/Social.astro';
 import { Image } from 'astro:assets';
 import logo from "../images/logo.png"
+import consulenze from "../images/momina_indovina.png";
+import trattamenti from "../images/healing_hands.png";
+import percorsi from "../images/0_3.1.png";
+import hero from "../images/studio.jpeg";
 ---
 
 <Page title="Studio Olistico di Romina Fabi">
-	<section class="bg-red-500 absolute top-0 left-0 w-full h-[90vh] flex flex-col">
-		<div id="box_logo" class="flex flex-col justify-center items-center max-w-[360px] mx-auto">
+	<section class="absolute top-0 left-0 w-full h-[90vh] md:h-[100vh] flex flex-col" id="home">
+		<div class=" bg-hero-pattern w-full h-full absolute top-0 left-0 bg-auto bg-bottom z-0 brightness-50" />
+		<Social />
+		<div id="box_logo" class="flex flex-col justify-center items-center max-w-[360px] mx-auto z-10">
 			<Image
 			src={logo}
 			alt="Green&Fresh Logo"
 			quality={"max"}
 			loading="eager"
 			decoding="async"
+			width={100}
+			height={100}
 			class={`w-[100px] h-[100px] p-1 rounded-full transition duration-300 mb-2 ${
 			  Astro.url.pathname.toString() === "/"
 				 ? "bg-white"
@@ -30,60 +38,54 @@ import logo from "../images/logo.png"
 			</div>
 			<h2 class="spacing text-xs">Romina Fabi</h2>
 		</div>
-		<div class="w-full text-center grow flex justify-center items-center flex-col">
+		<div class="w-full text-center grow flex justify-center items-center flex-col z-10">
 			<h1 id="typewriter" class="title_font text-3xl"></h1>
 			<h2 id="typewriter_sub" class="spacing text-sm"></h2>
 		</div>
-		<div class="flex flex-col w-full justify-center items-center pb-10">
+		<div class="flex flex-col w-full justify-center items-center pb-4 md:pb-0 z-10">
 			<a
 				href="https://rominafabi.it/servizi"
 				target="_self"
-				class="spacing text-xs py-4 px-8 bg-main rounded-full text-white border border-white hover:bg-white hover:text-main transition-all duration-300"
+				class="bg-opacity-80 backdrop-blur spacing text-xs my-4 py-4 px-8 bg-main rounded-lg text-white border border-gold hover:bg-white hover:text-main transition-all duration-300 text-center"
 			>
 				Scopri tutti i miei servizi
 			</a>
 			<a
 			id="chevron_down"
-			href="/#start"
+			href="/#servizi"
 			target="_self"
 			data-te-smooth-scroll-init
-			class="spacing text-xs py-4 px-4 my-4 bg-main rounded-full text-white hover:bg-white hover:text-main transition-all duration-300"
+			class="bg-opacity-80 backdrop-blur spacing text-xs py-4 px-4 my-4 bg-main rounded-full group text-white hover:bg-opacity-50 border border-gold transition-all duration-300"
 		>
-		<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+		<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-down group-hover:scale-105 transition duration-300" viewBox="0 0 16 16">
 			<path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
 		 </svg>
 		</a>
 		</div>
 	</section>
-	<div class="h-[90vh]"></div>
-	<div id="start" class="h-12"></div>
-	<section>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
+	<div class="h-[81vh] md:h-[90vh]">
+	</div>
+	<section class="min-h-[90vh] h-full flex flex-col gap-4 md:flex-row justify-center items-center relative border-t border-b border-gold" id="services_container">
+		<div class="bg-black-pattern absolute top-0 left-0 w-full bg-center h-full opacity-40 bg-cover"/>
+		<div id="servizi" class="h-[75px]"></div>
+		<a href="https://rominafabi.it/servizi/consulenze" class="w-full relative group" id="consulenze_container">
+			<div class="text-sm md:text-lg spacing absolute z-10 inset-0 flex items-center justify-center lg:group-hover:text-2xl transition-all duration-300 ">
+				<p class="bg-main backdrop-blur bg-opacity-70 py-4 px-8 rounded-lg border border-gold text-xs">Consulenze</p>
+			</div>
+			<Image src={consulenze} alt="Consulenze" class="max-h-[300px] lg:max-h-[450px] w-auto mx-auto rounded-xl brightness-90 group-hover:scale-105 transition-all duration-300  border border-gold" id="consulenze"/>
+		</a>
+		<a href="https://rominafabi.it/servizi/trattamenti" class="w-full relative group" id="trattamenti_container">
+			<div class="text-sm md:text-lg spacing absolute z-10 inset-0 flex items-center justify-center lg:group-hover:text-2xl transition-all duration-300">
+				<p class="bg-main backdrop-blur bg-opacity-70 py-4 px-8 rounded-lg border border-gold text-xs">Trattamenti</p>
+			</div>
+			<Image src={trattamenti} alt="Consulenze" class="max-h-[300px] lg:max-h-[450px] w-auto mx-auto rounded-xl brightness-90 group-hover:scale-105 transition-all duration-300 border border-gold" id="trattamenti"/>
+		</a>
+		<a href="https://rominafabi.it/servizi/percorsi" class="w-full relative group" id="percorsi_container">
+			<div class="text-sm md:text-lg spacing absolute z-10 inset-0 flex items-center justify-center lg:group-hover:text-2xl transition-all duration-300">
+				<p class="bg-main backdrop-blur bg-opacity-70 py-4 px-8 rounded-lg border border-gold text-xs">Percorsi</p>
+			</div>
+			<Image src={percorsi} alt="Consulenze" class="max-h-[300px] lg:max-h-[450px] w-auto mx-auto rounded-xl brightness-90 group-hover:scale-105 transition-all duration-300  border border-gold shadow-md" id="percorsi"/>
+		</a>
 	</section>
 </Page>
 
@@ -133,15 +135,9 @@ import logo from "../images/logo.png"
 	.instructions strong {
 		color: rgb(var(--accent-light));
 	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
-	}
 </style>
 <script>
-import { animate } from "motion"
+import { animate, inView } from "motion"
 import Typewriter from 'typewriter-effect/dist/core.js';
 
 var type = new Typewriter('#typewriter', {
@@ -187,6 +183,28 @@ var type = new Typewriter('#typewriter', {
   ],},{ duration: 2 }
   )
 
+  inView("#services_container", ({ target }) => {
+  animate(
+    target.querySelectorAll("#consulenze_container"),
+    { opacity: [0, 1], transform: "none" },
+    { delay: 0.3, duration: 2, easing: [0.33, 0.66, 0.66, 1] }
+  );
+});
+inView("#services_container", ({ target }) => {
+  animate(
+    target.querySelectorAll("#trattamenti_container"),
+    { opacity: [0, 1], transform: "none" },
+    { delay: 0.6, duration: 2, easing: [0.33, 0.66, 0.66, 1] }
+  );
+});
+inView("#services_container", ({ target }) => {
+  animate(
+    target.querySelectorAll("#percorsi_container"),
+    { opacity: [0, 1], transform: "none" },
+    { delay: 0.9, duration: 2, easing: [0.33, 0.66, 0.66, 1] }
+  );
+});
+
   animate("#chevron_down", {
 	y:[0,5,-5,0]
   },
@@ -194,5 +212,5 @@ var type = new Typewriter('#typewriter', {
 	duration:2,
 	offset: [0, 0.25, 0.75],
 	repeat: Infinity,
-	})
+	});
 </script>
