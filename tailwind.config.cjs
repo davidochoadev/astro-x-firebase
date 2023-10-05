@@ -14,7 +14,7 @@ module.exports = {
 		extend: {
 			backgroundImage: {
 				'hero-pattern': "url('/src/images/libreria_2.png')",
-				'black-pattern': "url('/src/images/green.png')"
+				'black-pattern': "url('/src/images/green.webp')"
 			 },
 			 inset: {
 				'center-socials': 'calc(50% - 81px)',
