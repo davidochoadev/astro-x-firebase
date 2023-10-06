@@ -1,0 +1,48 @@
+---
+import { Image } from "astro:assets";
+import logo from "../images/logo.webp"
+---
+<footer class="text-white border-t border-gold flex flex-col p-6 gap-6 items-center justify-center ">
+   {/* Logo and title */}
+   <div class="flex flex-col justify-center items-center gap-4">
+      <a href="https://rominafabi.it" class="bg-white rounded-full w-max p-2" target="_blank">
+      <Image src={logo} alt="logo" width={100} height={100}/>
+      </a>
+      <p class="spacing">rominafabi.it</p>
+   </div>
+   {/* Unordered List of Links */}
+   <div class="flex flex-col">
+      <div class="flex flex-row gap-4 flex-wrap pb-6 items-center text-center justify-center">
+         <a href="https://rominafabi.it/servizi">
+            <p class="spacing text-not-activate hover:text-activate transition-all duration-300">Servizi</p>
+         </a>
+         <a href="https://rominafabi.it/blog">
+            <p class="spacing text-not-activate hover:text-activate transition-all duration-300">Blog</p>
+         </a>
+         <a href="https://rominafabi.it/risorse">
+            <p class="spacing text-not-activate hover:text-activate transition-all duration-300">Risorse</p>
+         </a>
+         <a href="https://rominafabi.it/donazioni">
+            <p class="spacing text-not-activate hover:text-activate transition-all duration-300">Supportami</p>
+         </a>
+         <a href="https://rominafabi.it/disclaimer">
+            <p class="spacing text-not-activate hover:text-activate transition-all duration-300">Disclaimer</p>
+         </a>
+         <a href="https://rominafabi.it/disclaimer#privacy">
+            <p class="spacing text-not-activate hover:text-activate transition-all duration-300">Privacy Policy</p>
+         </a>
+      </div>
+      <p class="text-center uppercase spacing very-small text-gold">COPYRIGHT © 2022 | Romina Fabi | All Rights Reserved</p>
+      <a href="https://davidochoa.dev" class=" very-small uppercase spacing text-center text-xs text-[#878787] hover:text-white transition-all duration-300">
+         Designed and created with ❤️ by davidochoa.dev
+      </a>
+   </div>
+ </footer>
+ <style>
+   p {
+      font-size: 12px;
+   }
+   .very-small {
+      font-size:10px;
+   }
+ </style>

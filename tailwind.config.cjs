@@ -18,7 +18,10 @@ module.exports = {
 			 },
 			 inset: {
 				'center-socials': 'calc(50% - 81px)',
-			 }
+			 },
+			 height: {
+				'mid': 'calc(100% - 150px)',
+			 },
 		},
 	},
 	plugins: [],

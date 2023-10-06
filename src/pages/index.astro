@@ -2,7 +2,7 @@
 import Page from '../layouts/Page.astro';
 import Social from '../components/Social.astro';
 import { Image } from 'astro:assets';
-import logo from "../images/logo.png"
+import logo from "../images/logo.webp"
 import consulenze from "../images/momina_indovina.png";
 import trattamenti from "../images/healing_hands.png";
 import percorsi from "../images/0_3.1.png";
@@ -10,7 +10,7 @@ import hero from "../images/studio.jpeg";
 ---
 
 <Page title="Studio Olistico di Romina Fabi">
-	<section class="absolute top-0 left-0 w-full h-[90vh] md:h-[100vh] flex flex-col" id="home">
+	<section class="absolute top-0 left-0 w-full h-[100vh] md:h-[100vh] flex flex-col" id="home">
 		<div class=" bg-hero-pattern w-full h-full absolute top-0 left-0 bg-auto bg-bottom z-0 brightness-50" />
 		<Social />
 		<div id="box_logo" class="flex flex-col justify-center items-center max-w-[360px] mx-auto z-10">
@@ -63,29 +63,31 @@ import hero from "../images/studio.jpeg";
 		</a>
 		</div>
 	</section>
-	<div class="h-[81vh] md:h-[90vh]">
+	<div class="h-[90vh] md:h-[90vh]">
 	</div>
-	<section class="min-h-[90vh] h-full flex flex-col gap-4 md:flex-row justify-center items-center relative border-t border-b border-gold" id="services_container">
+	<section class="min-h-[90vh] md:h-[100vh] relative border-t border-b border-gold" id="services_container">
+		<div id="servizi" class="h-[10vh]"></div>
 		<div class="bg-black-pattern absolute top-0 left-0 w-full bg-center h-full opacity-40 bg-cover"/>
-		<div id="servizi" class="h-[75px]"></div>
-		<a href="https://rominafabi.it/servizi/consulenze" class="w-full relative group" id="consulenze_container">
-			<div class="text-sm md:text-lg spacing absolute z-10 inset-0 flex items-center justify-center lg:group-hover:text-2xl transition-all duration-300 ">
-				<p class="bg-main backdrop-blur bg-opacity-70 py-4 px-8 rounded-lg border border-gold text-xs">Consulenze</p>
-			</div>
-			<Image src={consulenze} alt="Consulenze" class="max-h-[300px] lg:max-h-[450px] w-auto mx-auto rounded-xl brightness-90 group-hover:scale-105 transition-all duration-300  border border-gold" id="consulenze"/>
-		</a>
-		<a href="https://rominafabi.it/servizi/trattamenti" class="w-full relative group" id="trattamenti_container">
-			<div class="text-sm md:text-lg spacing absolute z-10 inset-0 flex items-center justify-center lg:group-hover:text-2xl transition-all duration-300">
-				<p class="bg-main backdrop-blur bg-opacity-70 py-4 px-8 rounded-lg border border-gold text-xs">Trattamenti</p>
-			</div>
-			<Image src={trattamenti} alt="Consulenze" class="max-h-[300px] lg:max-h-[450px] w-auto mx-auto rounded-xl brightness-90 group-hover:scale-105 transition-all duration-300 border border-gold" id="trattamenti"/>
-		</a>
-		<a href="https://rominafabi.it/servizi/percorsi" class="w-full relative group" id="percorsi_container">
-			<div class="text-sm md:text-lg spacing absolute z-10 inset-0 flex items-center justify-center lg:group-hover:text-2xl transition-all duration-300">
-				<p class="bg-main backdrop-blur bg-opacity-70 py-4 px-8 rounded-lg border border-gold text-xs">Percorsi</p>
-			</div>
-			<Image src={percorsi} alt="Consulenze" class="max-h-[300px] lg:max-h-[450px] w-auto mx-auto rounded-xl brightness-90 group-hover:scale-105 transition-all duration-300  border border-gold shadow-md" id="percorsi"/>
-		</a>
+		<div class="flex flex-col gap-4 md:flex-row justify-center items-center h-mid pb-[75px] pt-4">
+			<a href="https://rominafabi.it/servizi/consulenze" class="w-full relative group" id="consulenze_container">
+				<div class="text-sm md:text-lg spacing absolute z-10 inset-0 flex items-center justify-center lg:group-hover:text-2xl transition-all duration-300 ">
+					<p class="bg-main backdrop-blur bg-opacity-70 py-4 px-8 rounded-lg border border-gold text-xs">Consulenze</p>
+				</div>
+				<Image src={consulenze} alt="Consulenze" class="max-h-[300px] lg:max-h-[450px] w-auto mx-auto rounded-xl brightness-90 group-hover:scale-105 transition-all duration-300  border border-gold" id="consulenze"/>
+			</a>
+			<a href="https://rominafabi.it/servizi/trattamenti" class="w-full relative group" id="trattamenti_container">
+				<div class="text-sm md:text-lg spacing absolute z-10 inset-0 flex items-center justify-center lg:group-hover:text-2xl transition-all duration-300">
+					<p class="bg-main backdrop-blur bg-opacity-70 py-4 px-8 rounded-lg border border-gold text-xs">Trattamenti</p>
+				</div>
+				<Image src={trattamenti} alt="Consulenze" class="max-h-[300px] lg:max-h-[450px] w-auto mx-auto rounded-xl brightness-90 group-hover:scale-105 transition-all duration-300 border border-gold" id="trattamenti"/>
+			</a>
+			<a href="https://rominafabi.it/servizi/percorsi" class="w-full relative group" id="percorsi_container">
+				<div class="text-sm md:text-lg spacing absolute z-10 inset-0 flex items-center justify-center lg:group-hover:text-2xl transition-all duration-300">
+					<p class="bg-main backdrop-blur bg-opacity-70 py-4 px-8 rounded-lg border border-gold text-xs">Percorsi</p>
+				</div>
+				<Image src={percorsi} alt="Consulenze" class="max-h-[300px] lg:max-h-[450px] w-auto mx-auto rounded-xl brightness-90 group-hover:scale-105 transition-all duration-300  border border-gold shadow-md" id="percorsi"/>
+			</a>
+		</div>
 	</section>
 </Page>
 

@@ -1,7 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import logo from "../images/logo.png";
+import logo from "../images/logo.webp";
 import { AdminCheck } from "../utils/adminCheck";
+import Footer from "../components/Footer.astro"
 
 const { title } = Astro.props;
 const navItems = [
@@ -41,7 +42,7 @@ console.log(Astro.url.pathname);
   <body class="bg-main">
     <header
     id="header_menu"
-      class="bg-opacity-80 backdrop-blur flex flex-colum space-x-4 w-full items-center px-2 lg:px-10 py-3 md:py-4 border-b border-gold shadow-md bg-main sticky top-0 left-0 z-20 opacity-0 "
+      class="h-[10vh] bg-opacity-80 backdrop-blur flex flex-colum space-x-4 w-full items-center px-2 lg:px-10 py-3 md:py-4 border-b border-gold shadow-md bg-main sticky top-0 left-0 z-20 opacity-0 "
     >
       <a
         href="/#home"
@@ -137,20 +138,7 @@ console.log(Astro.url.pathname);
         </button>
       </div>
     </main>
-    <footer class="text-white border-t border-gold">
-      <div class="bg-white rounded-full w-max p-2">
-        <Image src={logo} alt="logo" width={100} height={100}/>
-      </div>
-      <p>
-        <a href="https://jason.af/links">created by David Ochoa</a>
-        <a href="#frontend-masters-link"
-          >learn to build this on Frontend Masters</a
-        >
-        <a href="https://github.com/learnwithjason/astro-frontend-masters"
-          >source code</a
-        >
-      </p>
-    </footer>
+    <Footer />
   </body>
 </html>
 
@@ -169,6 +157,11 @@ console.log(Astro.url.pathname);
   .title_font {
     font-family: "Playfair Display", sans-serif;
     font-weight: 400;
+  }
+  .spacing {
+    font-family: "Open Sans", serif;
+    letter-spacing:3px;
+    text-transform: uppercase;
   }
   
 </style>
