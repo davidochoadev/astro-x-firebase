@@ -14,13 +14,15 @@ module.exports = {
 		extend: {
 			backgroundImage: {
 				'hero-pattern': "url('/src/images/libreria.webp')",
-				'black-pattern': "url('/src/images/green.webp')"
+				'black-pattern': "url('/src/images/green.webp')",
+				'dark-pattern': "url('/src/images/dark.webp')"
 			 },
 			 inset: {
 				'center-socials': 'calc(50% - 81px)',
 			 },
 			 height: {
 				'mid': 'calc(100% - 150px)',
+				'mid2': 'calc(90vh - 10vh)'
 			 },
 		},
 	},
